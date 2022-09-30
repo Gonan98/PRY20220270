@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class Unit : MonoBehaviour
 {
+    private float _maxHealth;
+    private float _health;
+    private float _speed;
+    private float _attackCooldown;
+    private float _stoppingDistance;
     private Animator _animator;
     private NavMeshAgent _agent;
     // Start is called before the first frame update
@@ -25,4 +30,10 @@ public class Unit : MonoBehaviour
     {
         UnitSelections.Instance.Units.Remove(this.gameObject);
     }
+
+    public bool IsDead()
+    {
+        return _health <= 0;
+    }
+ 
 }

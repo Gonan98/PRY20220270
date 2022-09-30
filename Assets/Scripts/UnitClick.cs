@@ -9,6 +9,7 @@ public class UnitClick : MonoBehaviour
     // public GameObject GroundMarker;
     public LayerMask Clickable;
     public LayerMask Ground;
+    public LayerMask Attackable;
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +32,19 @@ public class UnitClick : MonoBehaviour
                 UnitSelections.Instance.DeselectAll();
             }
         }
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    RaycastHit hit;
-        //    Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity, Ground))
-        //    {
-        //        GroundMarker.transform.position = hit.point;
-        //        GroundMarker.SetActive(false);
-        //        GroundMarker.SetActive(true);
-        //    }
-        //}
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, Attackable))
+            {
+                //GroundMarker.transform.position = hit.point;
+                //GroundMarker.SetActive(false);
+                //GroundMarker.SetActive(true);
+                foreach (var unit in UnitSelections.Instance.UnitsSelected)
+                {
+
+                }
+            }
+        }
     }
 }

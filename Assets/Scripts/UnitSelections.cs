@@ -52,4 +52,12 @@ public class UnitSelections : MonoBehaviour
     {
 
     }
+
+    public void Attack()
+    {
+        foreach(var unit in UnitsSelected)
+        {
+            
+        }
+    }
 }
